@@ -14,7 +14,7 @@
 					return $( '<' + tag + '/>', { 'class' : namespace + classname.charAt( 0 ).toUpperCase() + classname.slice( 1 ) } );
 				}
 			;
-			this.$image  = $( image ).wrap( node( 'div', 'frame' ) ) // wrap image in frame;
+			this.$image  = $( image ).wrap( node( 'div', 'frame' ) ); // wrap image in frame;
 			this.options = $.extend( {}, this.options, {
 				width    : this.$image.attr(  'width' )
 				, height : this.$image.attr( 'height' )
@@ -39,7 +39,7 @@
 							}
 						}, $.proxy( self.drag, self ) )
 						.on( 'mouseup.' + namespace, function () {
-							$( document ).off( '.' + namespace )
+							$( document ).off( '.' + namespace );
 						} )
 					;
 				} )
