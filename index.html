@@ -18,11 +18,11 @@
 			border : 4px solid black;
 		}
 	</style>
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"></script>
-	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/hammer.js/1.0.10/hammer.js"></script>
-	<script type="text/javascript" src="jquery.mousewheel.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.4/hammer.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
 	<script type="text/javascript" src="jquery.crop.js"></script>
-	<script type="text/javascript" defer>
+	<script type="text/javascript">
 		$( function () {
 			$( '.crop' ).each( function () {
 				var image     = $( this )
@@ -44,16 +44,18 @@
 						} )
 						.data( 'crop' )
 				;
-				// zoom on scroll
+
+				// zoom on scroll (jquery-mousewheel dependency)
 				image
 					.on( 'mousewheel.crop', function ( event ) {
-						return event.originalEvent.wheelDelta < 0 ? 
+						return event.originalEvent.wheelDelta < 0 ?
 							crop.zoomIn() :
 							crop.zoomOut();
 					} )
 				;
-				// zoom on pinch touch
-				window.Hammer && Hammer( this )
+
+				// zoom on pinch touch (hammer dependency)
+				Hammer( this )
 					.on( 'pinchin', function ( event ) {
 						return crop.zoomOut();
 					} )
