@@ -3,6 +3,8 @@
  * Modified by Adrien Gibrat
  * Licensed under the MIT license.
  */
+/* jshint laxcomma: true */
+/* globals jQuery */
 ( function ( $, undefined ) {
 	var namespace = 'crop' // IE sucks
 		, plugin  = function ( image, options ) {
