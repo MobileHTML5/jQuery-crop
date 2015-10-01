@@ -20,6 +20,7 @@
 	opacity    : 0;
 	filter     : alpha(opacity=0);
 	transition : opacity .25s linear;
+	-o-transition      : opacity .25s linear;
 	-moz-transition    : opacity .25s linear;
 	-webkit-transition : opacity .25s linear;
 }
@@ -62,10 +63,9 @@
 
 .cropZoomOut::after,
 .cropZoomOut .after {
-	vertical-align : top;
 	line-height    : 14px;
 	font-size      : 22px;
-	margin-left    : -2px;
+	margin-left    : -1px;
 	content        : "-";
 	display        : block;
 }
