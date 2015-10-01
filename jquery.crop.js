@@ -63,7 +63,7 @@
 				.append( node( 'span', 'loading' ).append( this.options.loading ) )
 				.hover( function () { self.$frame.toggleClass( 'hover' ); } )
 			;
-			if ( this.options.controls !== false )
+			if ( this.options.controls !== false ) {
 				this.$frame
 					.append( node( 'div', 'controls' )
 						.append( node( 'span', 'text' ).append( this.options.controls ) )
@@ -71,6 +71,7 @@
 						.append( node( 'a', 'zoomOut' ).on( 'click.' + namespace, $.proxy( this.zoomOut, this ) ) )
 					)
 				;
+			}
 		}
 	;
 	$[ namespace ] = $.extend( plugin
@@ -135,8 +136,9 @@
 		}
 		// ensure that no gaps are between target's edges and container's edges
 		, fill    : function ( value, target, container ) { 
-			if ( value + target < container )
+			if ( value + target < container ) {
 				value = container - target;
+			}
 			return value > 0 ? 0 : value;
 		}
 	} );
