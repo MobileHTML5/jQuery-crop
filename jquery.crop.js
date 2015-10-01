@@ -7,7 +7,7 @@
 /* globals jQuery */
 ( function ( $, undefined ) {
 	var namespace = 'crop' // IE sucks
-		, plugin  = function ( image, options ) {
+		, Plugin  = function ( image, options ) {
 			var self   = this
 				, img  = new Image()
 				, node = function ( tag, classname ) {
@@ -74,7 +74,7 @@
 			}
 		}
 	;
-	$[ namespace ] = $.extend( plugin
+	$[ namespace ] = $.extend( Plugin
 	, {
 		prototype : {
 			percent : null
@@ -91,15 +91,15 @@
 				this.$image.width( Math.ceil( this.$image.prop( 'naturalWidth' ) * this.percent ) );
 				this.$image.height( Math.ceil( this.$image.prop( 'naturalHeight' ) * this.percent ) );
 				this.$image.css( { 
-					left  : plugin.fill( - Math.round( this.focal.x * this.percent - this.options.width / 2 ), this.$image.width(), this.options.width )
-					, top : plugin.fill( - Math.round( this.focal.y * this.percent - this.options.height / 2 ), this.$image.height(), this.options.height )
+					left  : Plugin.fill( - Math.round( this.focal.x * this.percent - this.options.width / 2 ), this.$image.width(), this.options.width )
+					, top : Plugin.fill( - Math.round( this.focal.y * this.percent - this.options.height / 2 ), this.$image.height(), this.options.height )
 				} );
 				this.update();
 			}
 			, drag  : function ( event ) {
 				this.$image.css( {
-					left  : plugin.fill( event.data.image.x + event.pageX - event.data.mouse.x, this.$image.width(), this.options.width )
-					, top : plugin.fill( event.data.image.y + event.pageY - event.data.mouse.y, this.$image.height(), this.options.height )
+					left  : Plugin.fill( event.data.image.x + event.pageX - event.data.mouse.x, this.$image.width(), this.options.width )
+					, top : Plugin.fill( event.data.image.y + event.pageY - event.data.mouse.y, this.$image.height(), this.options.height )
 				} );
 				this.update();
 			}
@@ -145,7 +145,7 @@
 
 	$.fn[ namespace ] = function ( options ) {
 		return this.each( function () {
-			new plugin( this, options );
+			new Plugin( this, options );
 		} );
 	};
 
